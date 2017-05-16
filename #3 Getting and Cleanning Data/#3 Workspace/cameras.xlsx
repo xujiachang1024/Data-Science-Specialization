@@ -1,0 +1,5 @@
+{
+  "code" : "unacceptable_response_type",
+  "error" : true,
+  "message" : "Requested type is not available"
+}
