@@ -32,7 +32,7 @@ vignettes/*.pdf
 *.utf8.md
 *.knit.md
 
-# Raw Data Files
+# Raw data files
 **/*.txt
 **/*.csv
 **/*.xls
