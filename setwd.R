@@ -19,3 +19,11 @@ setwd("/Users/JEX/Desktop/datasciencecoursera/#4 Exploratory Data Analysis/#4 Wo
 print(
     getwd()
 )
+
+
+
+## Course 6: Statistical Inference
+setwd("/Users/JEX/Desktop/datasciencecoursera/#6 Statistical Inference/#6 Workspace")
+print(
+    getwd()
+)
