@@ -27,3 +27,11 @@ setwd("/Users/JEX/Desktop/datasciencecoursera/#6 Statistical Inference/#6 Worksp
 print(
     getwd()
 )
+
+
+
+## Course 7: Regression Models
+setwd("/Users/JEX/Desktop/datasciencecoursera/#7 Regression Models/#7 Workspace")
+print(
+    getwd()
+)
