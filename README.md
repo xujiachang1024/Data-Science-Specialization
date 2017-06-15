@@ -6,7 +6,7 @@ Data Science Specialization by John Hopkins University on Coursera
 * <b>Course 3: Getting and Cleaning Data</b>
 * <b>Course 4: Exploratory Data Analysis</b>
 * <b>Course 5: Reproducible Research</b>
-* <b>Course 6: Statistical Inference</b>
+* <b>Course 6: Statistical Inference</b> [<a href="https://github.com/xujiachang1024/Inference_Project">Course Project</a>]
 * <b>Course 7: Regression Models</b>
 * <b>Course 8: Practical Machine Learning</b>
 * <b>Course 9: Developing Data Products</b>
