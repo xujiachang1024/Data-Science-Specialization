@@ -9,3 +9,5 @@ Data Science Specialization by John Hopkins University on Coursera
 * <b>Course 6: Statistical Inference</b>
 * <b>Course 7: Regression Models</b>
 * <b>Course 8: Practical Machine Learning</b>
+* <b>Course 9: Developing Data Products</b>
+* <b>Data Science Capstone</b>
