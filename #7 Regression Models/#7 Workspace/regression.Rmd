@@ -1,0 +1,96 @@
+---
+title: "Regressional Analysis on Fuel Efficiency"
+author: "Jiachang (Ernest) Xu"
+date: "6/16/2017"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Executive Summary
+
+This project will explore the relationship between miles per gallon (MPG) and other variables from the Motor Trends dataset. We are particularly interested in the following two questions:
+
+ * Is an automatic or manual transmission better for MPG?
+ * Quantify the MPG difference between automatic and manual transmissions
+ 
+Our first guess is manual transmission is better for MPG than automatic transmission. The exploratory t.test verifies this guess.
+
+```{r loading data, include=FALSE}
+require(datasets)
+require(plyr)
+require(ggplot2)
+require(GGally)
+require(car)
+data("mtcars")
+attach(mtcars)
+```
+
+```{r splitting data, include=FALSE}
+auto <- mtcars[which(am == 1), ]
+manual <- mtcars[which(am == 0), ]
+```
+
+## Exploratory Hypothesis Testing
+
+The following t.test and boxplots (Figure 1) show that the average MPG of manual transmission is significantly higher that that of automatic transmission. Therefore, based on the siginificant level of 5%, we can conclude that **manual transmission is better for MPG than automatic transmission**. Please refer to Appendix I about loading and splitting data.
+
+```{r exploratory test, echo=TRUE}
+t.test(manual$mpg, auto$mpg, alternative = "less")$p.value
+```
+
+```{r figure 1, echo=FALSE}
+figure_1 <- ggplot(mtcars, aes(y=mpg,x=am)) + geom_boxplot(aes(fill=factor(am))) + labs(title = "Figure 1: Sample Distribution of MPG based on Transmission Types") + annotate("text", x = .5, y = 10, label = c("p = .00068")) + geom_jitter(width = 0.2) + annotate("text", x = 0, y = 16.85, label = c("mean = 17.15"))+ annotate("text", x = 1, y = 24.39, label = c("mean = 24.39")) + annotate("text", x = .5, y = 11, label = c("Corr = .6")) + annotate("text", x = .5, y = 12, label = c("Beta = 7.23"))
+
+figure_1
+```
+
+## Model/Feature Selection
+
+```{r figure 2, echo=FALSE}
+pair_loess <- function(data, mapping, method="loess", ...){
+       p <- ggplot(data = data, mapping = mapping) + 
+              geom_point() + 
+              geom_smooth(method=method, ...)
+       p
+}
+
+g <- ggpairs(mtcars, lower = list(continuous=pair_loess))
+```
+
+
+## Conclusion
+
+Our analysis shows that **manual transmission is more fuel eifficient than automatic transmission**.
+
+## Appendix I: Loading and Splitting Data
+
+ * Loading Data
+ 
+```{r appendix loading data, eval=FALSE, echo=TRUE}
+require(datasets)
+require(plyr)
+require(ggplot2)
+require(GGally)
+require(car)
+data("mtcars")
+attach(mtcars)
+```
+
+ * Splitting Data
+ 
+```{r appendix splitting data, eval=FALSE, echo=TRUE}
+auto <- mtcars[which(am == 1), ]
+manual <- mtcars[which(am == 0), ]
+```
+
+## Appendix II: Figure 1 Plotting Code
+
+```{r appendix figure 1, eval=FALSE, echo=TRUE}
+figure_1 <- ggplot(mtcars, aes(y=mpg,x=am)) + geom_boxplot(aes(fill=factor(am))) + labs(title = "Figure 1: Sample Distribution of MPG based on Transmission Types") + annotate("text", x = .5, y = 10, label = c("p = .00068")) + geom_jitter(width = 0.2) + annotate("text", x = 0, y = 16.85, label = c("mean = 17.15"))+ annotate("text", x = 1, y = 24.39, label = c("mean = 24.39")) + annotate("text", x = .5, y = 11, label = c("Corr = .6")) + annotate("text", x = .5, y = 12, label = c("Beta = 7.23"))
+
+figure_1
+```
+
