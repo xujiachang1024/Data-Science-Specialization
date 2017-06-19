@@ -1,2 +1,2 @@
-## Course 8: Practical Machine Learning
+## Course 9: Developing Data Products
 Part of Data Science Specialization by John Hopkins University on Coursera
