@@ -14,4 +14,4 @@ This Specialization covers the concepts and tools you'll need throughout the ent
 * <b>Course 7: Regression Models</b> [<a href="https://github.com/xujiachang1024/Regression_Project">Course Project</a>]
 * <b>Course 8: Practical Machine Learning</b> [<a href="https://github.com/xujiachang1024/MachineLearning_Project">Course Project (WIP)</a>]
 * <b>Course 9: Developing Data Products</b>
-* <b>Course 10: Data Science Capstone</b>
+* <b>Data Science Capstone</b>
