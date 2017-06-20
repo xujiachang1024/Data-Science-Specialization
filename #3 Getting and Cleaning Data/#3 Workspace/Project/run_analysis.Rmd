@@ -3,7 +3,6 @@ title: "Human Activity Recognition Dataset Cleaning"
 author: "Jiachang (Ernest) Xu"
 date: "6/20/2017"
 output:
-  html_document: default
   pdf_document: default
 ---
 
