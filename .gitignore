@@ -38,3 +38,6 @@ vignettes/*.pdf
 **/*.xls
 **/*.xlsx
 **/*.zip
+
+# HTML files
+**/*.html
