@@ -1,0 +1,70 @@
+---
+title: "Data Slicing Demo - SPAM Example"
+author: "Jiachang (Ernest) Xu"
+date: "6/22/2017"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r data loading, echo=TRUE}
+## require caret package for machine learning algorithms
+require(caret)
+## require kernlab for spam data
+require(kernlab)
+## data loading
+data(spam)
+```
+
+## SPAM Example: Data Splitting
+
+```{r data splitting, echo=TRUE}
+inTrain <- createDataPartition(y = spam$type, p = 0.75, list = FALSE)
+training <- spam[inTrain, ]
+testing <- spam[-inTrain, ]
+dim(training)
+```
+
+## SPAM Example: K-fold (returnTrain = TRUE)
+
+```{r k-fold, echo=TRUE}
+## k-fold
+set.seed(32323)
+folds.train <- createFolds(y = spam$type, k = 10, list = TRUE, returnTrain = TRUE)
+sapply(folds.train, length)
+folds.train[[1]][1:10]
+```
+
+## SPAM Example: K-fold (returnTrain = FALSE)
+
+```{r return test}
+## k-fold
+set.seed(32323)
+folds.test <- createFolds(y = spam$type, k = 10, list = TRUE, returnTrain = FALSE)
+sapply(folds.test, length)
+folds.test[[1]][1:10]
+```
+
+## SPAM Example: Resampling
+
+```{r resampling, echo=TRUE}
+set.seed(32323)
+folds.resample <- createResample(y = spam$type, times = 10, list = TRUE)
+sapply(folds.resample, length)
+folds.resample[[1]][1:10]
+```
+
+## SPAM Example: Times Slices
+
+```{r time slices, echo=TRUE}
+set.seed(32323)
+time <- 1:10000
+folds.time <- createTimeSlices(y = time, initialWindow = 20, horizon = 10)
+names(folds.time)
+folds.time$train[[1]][1:10]
+folds.time$test[[1]][1:10]
+```

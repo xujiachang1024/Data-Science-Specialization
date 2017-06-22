@@ -1,0 +1,75 @@
+---
+title: "Training Options Demo - SPAM Example"
+author: "Jiachang (Ernest) Xu"
+date: "6/22/2017"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r data loading, echo=TRUE}
+## require caret package for machine learning algorithms
+require(caret)
+## require kernlab for spam data
+require(kernlab)
+## data loading
+data(spam)
+```
+
+```{r data splitting, echo=TRUE}
+inTrain <- createDataPartition(y = spam$type, p = 0.75, list = FALSE)
+training <- spam[inTrain, ]
+testing <- spam[-inTrain, ]
+```
+
+```{r generalized linear model, echo=TRUE}
+## generalized linear model
+suppressWarnings(model.fit <- train(type ~ ., data = training, method = "glm"))
+```
+
+## Training Options
+
+**trainControl**
+
+```{r train.default, echo=TRUE}
+args(trainControl)
+```
+
+**trainControl resampling**
+
+ * method
+    - "boot" = bootstrapping
+    - "boot632" = bootstrapping with adjustment
+    - "cv" = cross validation
+    - "repeatedcv" = repeated cross validation
+    - "LOOCV" = leave one out cross validation
+ * number
+    - for bootstrapping or cross validation
+    - number of subsamples to take
+ * repeats
+    - number of times to repeat subsampling
+    - if big this can slow things down
+
+## Setting the Seed
+
+ * It is often useful to set an overall seed.
+ * You can also set a seed for each resample.
+ * Seeding each sample is useful for parallel fits.
+
+**set.seed() example**
+
+```{r set.seed() example, echo=TRUE}
+## set.seed() example
+set.seed(1235)
+suppressWarnings(model.fit2 <- train(type ~ ., data = training, method = "glm"))
+model.fit2
+
+## set.seed() example
+set.seed(1235)
+suppressWarnings(model.fit3 <- train(type ~ ., data = training, method = "glm"))
+model.fit3
+```

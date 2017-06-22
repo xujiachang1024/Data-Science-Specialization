@@ -1,0 +1,60 @@
+---
+title: "Caret Package Demo - SPAM Example"
+author: "Jiachang (Ernest) Xu"
+date: "6/22/2017"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## SPAM Example: Data Splitting
+
+```{r data loading, echo=TRUE}
+## require caret package for machine learning algorithms
+require(caret)
+## require kernlab for spam data
+require(kernlab)
+## data loading
+data(spam)
+```
+
+```{r splitting data to training and testing, echo=TRUE}
+## splitting data to training and testing
+inTrain <- createDataPartition(y = spam$type, p = 0.75, list = FALSE)
+training <- spam[inTrain, ]
+testing <- spam[-inTrain, ]
+dim(training)
+```
+
+## SPAM Example: Fit a Model (Generalized Linear Model)
+
+```{r generalized linear model, echo=TRUE}
+## generalized linear model
+set.seed(32343)
+suppressWarnings(model.fit <- train(type ~ ., data = training, method = "glm"))
+model.fit
+```
+
+## SPAM Example: Final Model
+
+```{r final model, echo=TRUE}
+model.fit$finalModel
+```
+
+## SPAM Example: Prediction
+
+```{r prediction, echo=TRUE}
+## prediction
+prediction <- predict(model.fit, newdata = testing)
+prediction
+```
+
+## SPAM Example: Confusion Matrix
+
+```{r confusion matrix, echo=TRUE}
+confusionMatrix(data = prediction, testing$type)
+```
