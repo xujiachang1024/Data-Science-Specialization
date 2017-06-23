@@ -1,0 +1,104 @@
+---
+title: "Plotting Predictors Demo - Wage Example"
+author: "Jiachang (Ernest) Xu"
+date: "6/23/2017"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Example: Wage Data
+
+```{r data loading, echo=TRUE}
+## require ISLR package for machine learning data
+require(ISLR)
+## require caret package for machine learning algorithms
+require(caret)
+## require ggplot2 package for plotting
+require(ggplot2)
+## data loading
+data(Wage)
+summary(Wage)
+```
+
+## Get Training/Testing Sets
+
+```{r get training/testing sets, echo=TRUE}
+inTrain <- createDataPartition(y = Wage$wage, p = 0.7, list = FALSE)
+training <- Wage[inTrain, ]
+testing <- Wage[-inTrain, ]
+dim(training)
+dim(testing)
+```
+
+## featurePlot (caret Package)
+
+```{r featurePlot, echo=TRUE}
+args(featurePlot)
+featurePlot(x = training[, c("age", "education", "jobclass")], 
+            y = training$wage, 
+            plot = "pairs")
+```
+
+## qplot (ggplot2 Package)
+
+```{r qplot, echo=TRUE}
+args(qplot)
+qplot(x = age, y = wage, data = training)
+```
+
+## qplot with Colour (ggplot2 Package)
+
+```{r qplot with Colour, echo=TRUE}
+qplot(x = age, y = wage, colour = jobclass, data = training)
+```
+
+## Add Regression Smoothers (ggplot2 Package)
+
+```{r add regression smoothers, echo=TRUE}
+qq <- qplot(x = age, y = wage, colour = education, data = training)
+qq + geom_smooth(method = "lm", formula = y ~ x)
+```
+
+## cut2 Making Factors (Hmisc Package)
+
+```{r cut2 making factors, echo=TRUE}
+require(Hmisc)
+cutWage <- cut2(training$wage, g = 3)
+table(cutWage)
+```
+
+## Boxplot with cut2
+
+```{r boxplot with cut2, echo=TRUE}
+boxplot.1 <- qplot(cutWage, age, data = training, fill = cutWage, 
+                   geom = c("boxplot"))
+boxplot.1
+```
+
+## Boxplot with Points Overlayed
+
+```{r boxplot with points overlayed, echo=TRUE}
+require(gridExtra)
+boxplot.2 <- qplot(cutWage, age, data = training, fill = cutWage, 
+                   geom = c("boxplot", "jitter"))
+grid.arrange(boxplot.1, boxplot.2, nrow = 2)
+```
+
+## Tables
+
+```{r tables, echo=TRUE}
+table.1 <- table(cutWage, training$jobclass)
+table.1
+prop.table(table.1, 1)
+```
+
+## Density Plot
+
+```{r density plot, echo=TRUE}
+qplot(wage, colour = education, data = training, geom = "density")
+```
