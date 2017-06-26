@@ -10,8 +10,8 @@ This Specialization covers the concepts and tools you'll need throughout the ent
 * <b>Course 3: Getting and Cleaning Data</b> [<a href="https://github.com/xujiachang1024/CleaningData_Project">Course Project</a>]
 * <b>Course 4: Exploratory Data Analysis</b> [<a href="https://github.com/xujiachang1024/Exploratory_Plotting1">Plotting Assignment 1</a>] [<a href="https://github.com/xujiachang1024/Exploratory_Plotting2">Plotting Assignment 2</a>]
 * <b>Course 5: Reproducible Research</b> [<a href="https://github.com/xujiachang1024/WalkingPattern_Analysis">Course Project 1</a>] [<a href="https://github.com/xujiachang1024/Storm_Analysis">Course Project 2</a>]
-* <b>Course 6: Statistical Inference</b> [<a href="https://github.com/xujiachang1024/Inference_Project">Course Project</a>]
+* <b>Course 6: Statistical Inference</b> [<a href="https://github.com/xujiachang1024/StatsInference_Project">Course Project</a>]
 * <b>Course 7: Regression Models</b> [<a href="https://github.com/xujiachang1024/FuelEfficiency_Analysis">Course Project</a>]
-* <b>Course 8: Practical Machine Learning</b> [<a href="https://github.com/xujiachang1024/MachineLearning_Project">Course Project (WIP)</a>]
+* <b>Course 8: Practical Machine Learning</b> [<a href="https://github.com/xujiachang1024/HumanActivity_Prediction">Course Project (WIP)</a>]
 * <b>Course 9: Developing Data Products</b>
 * <b>Data Science Capstone</b>
