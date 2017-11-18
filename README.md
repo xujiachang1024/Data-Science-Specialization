@@ -1,4 +1,4 @@
-# Data Science Coursera
+# Data Science Specialization
 Data Science Specialization by John Hopkins University on Coursera
 
 ### About this Specialization
