@@ -13,5 +13,5 @@ This Specialization covers the concepts and tools you'll need throughout the ent
 * <b>Course 6: Statistical Inference</b> [<a href="https://https://www.coursera.org/account/accomplishments/verify/F8R2KBMF68XK">Course Cerfiticate</a>] [<a href="https://github.com/xujiachang1024/StatsInference_Project">Course Project</a>]
 * <b>Course 7: Regression Models</b> [<a href="https://www.coursera.org/account/accomplishments/verify/76U3EULEGP7Z">Course Cerfiticate</a>] [<a href="https://github.com/xujiachang1024/FuelEfficiency_Analysis">Course Project</a>]
 * <b>Course 8: Practical Machine Learning</b> [<a href="https://github.com/xujiachang1024/HumanActivity_Prediction">Course Project (WIP)</a>]
-* <b>Course 9: Developing Data Products</b>
+* <b>Course 9: Developing Data Products</b> [<a href="https://github.com/xujiachang1024/Developing-Data-Products">Course Projects</a>]
 * <b>Data Science Capstone</b>
